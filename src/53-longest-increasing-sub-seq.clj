@@ -1,5 +1,4 @@
-(fn [xs]
-  (first (reduce
+(comp first (partial reduce
           (fn [[best current] n]
             (if (empty? current)
               [best [n]]
@@ -9,5 +8,4 @@
                     [current' current']
                     [best current']))
                 [best [n]])))
-          [[], []]
-          xs)))
+          [[], []]))
